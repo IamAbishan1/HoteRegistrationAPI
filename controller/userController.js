@@ -11,8 +11,7 @@ module.exports = {
     register: async (req,res)=>{
         try{
 
-            console.log("Body",req.body)
-            console.log("IMage",req.file)
+           
             const hashedPassword = bcrypt.hashSync(req.body.password, 10)
             const user = new User({
               name: req.body.name,
@@ -50,7 +49,6 @@ module.exports = {
         const isEmail = req.body.email_or_phone.match(/@/);
         
         const user = await User.findOne(isEmail? {email: email_or_phone}: {phone: email_or_phone})
-        console.log("user",user)
         if(user){
             const passwordMatch = bcrypt.compareSync(req.body.password,user.password)
         

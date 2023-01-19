@@ -16,9 +16,7 @@ const path = require("path");
 
 
 const router = express.Router();
-console.log("File",imagePaths.user)
 
-console.log(path.parse(__dirname))
 const userStorage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null,imagePaths.user)
@@ -44,7 +42,6 @@ upload.single("image"),
     body("name","Name must be between 5 and 40 characters.")
     .isLength({min:5,max:40})
     .custom(async (value,{req}) =>{
-        console.log("BB",req.body)
         if (doesnotContainRestrictedChars(value) == false) {
             throw new Error("Name cannot contain special characters");
           }
@@ -104,7 +101,6 @@ router.post("/logIn",
     .exists()
     .notEmpty()
     .custom(async (value,{req:req})=>{
-        console.log("Email",req.body)
         const isEmail = req.body.email_or_phone.match(/@/);
         if(isEmail){
             if(!validator.isEmail(req.body.email_or_phone)) throw new Error("Invalid email address.")
