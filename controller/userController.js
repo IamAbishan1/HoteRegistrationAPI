@@ -30,7 +30,7 @@ module.exports = {
               user: user.formatted(req)
             },
           });
-        }catch(error){
+        }catch(err){
             res.status(400).json({
                 status: "error",
                 message: err.stack,
