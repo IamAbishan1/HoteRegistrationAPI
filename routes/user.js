@@ -12,7 +12,7 @@ const { doesnotContainRestrictedChars } = require("../helpers/filter");
 const singleImageUploadValidation = require("../middlewares/singleImageUploadValidation")
 
 const path = require("path");
-
+const cacheMid  = require('../middlewares/cacheMid')
 
 
 const router = express.Router();
@@ -119,5 +119,5 @@ handleValidationErrors(),
  );
 
 
-router.get("/allUsers", checkLogin.isLoggedIn, errorHelper.wrapAsync(userController.allUsers));
+router.get("/allUsers",cacheMid(300), checkLogin.isLoggedIn, errorHelper.wrapAsync(userController.allUsers));
 module.exports = router;

@@ -10,7 +10,7 @@ const path = require("path");
 var fs = require("fs");
 
 const multer = require("multer");
-
+const morgan = require("morgan")
 // const cors = require("cors");
 const app = express();
 const http = require("http");
@@ -38,6 +38,7 @@ app.use(checker);
 app.use(request);
 app.use(pathMain);
 app.use(auth);
+app.use(morgan('dev'))
 // app.use(route)
 const validEndpoints = router.use("/",function (req,res,next){
     next();
