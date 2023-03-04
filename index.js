@@ -19,7 +19,7 @@ const http = require("http");
 
 const server = http.createServer(app);
 
-const port = 3000;
+const port = 5000;
 
 const pathMain = router.all("/", (req, res) => {
     res.send("Server Hotel API Black Tech Interview");
