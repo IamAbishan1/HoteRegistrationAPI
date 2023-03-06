@@ -82,4 +82,7 @@ errorHelper.wrapAsync(hotelController.registerHotel));
 
 
 router.get("/allHotels", errorHelper.wrapAsync(hotelController.allHotels));
+
+router.get("/csvFile", errorHelper.wrapAsync(hotelController.csvFile));
+
 module.exports = router;
