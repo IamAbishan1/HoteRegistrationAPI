@@ -1,4 +1,5 @@
-const mongoose = require("mongoose")
+    //     onClick={()=>setVisibility(visibility => !visibility)}
+    const mongoose = require("mongoose")
 const { pick, formattedImagePath} = require("../helpers/filter")
 
 const userSchema = new mongoose.Schema({

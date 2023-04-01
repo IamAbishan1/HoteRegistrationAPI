@@ -31,15 +31,15 @@ const auth = router.use(jwt.capturer);
 
 // Converting 404 Error in /api to jsend responses
 
+app.use(cors());
 
 app.use(express.json());
-
+app.use(morgan('dev'))
 app.use(checker);
 app.use(request);
 app.use(pathMain);
 app.use(auth);
-app.use(morgan('dev'))
-app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 
 // app.use(route)
@@ -81,6 +81,7 @@ const error404 = router.use("/", function (req, res, next) {
         message: "Cannot " + req.method + " " + req.protocol + "://" + req.get("host") + req.originalUrl + ". Maybe the resource was not found or request method is invalid."
     });
 });
+
 
 // app.use(corsCheck)
 // app.use(

@@ -15,7 +15,7 @@ const admin = {
     isEmployee: true
 }
 
-const db = mongoose.connect(process.env.LOCAL_DATABASE, {
+const db = mongoose.connect('mongodb://admin:password@localhost:27072', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(async ()=>{
