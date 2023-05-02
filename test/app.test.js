@@ -28,17 +28,17 @@ const userInput = {
 
 describe("POST /users", () => {
     describe("GEt all users", () => {
-        // test("register a user", async () => {
+        test("register a user", async () => {
 
             
-        //     const response = await request(app)
-        //         .post("/users/register")
-        //         .send(userInput)
+            const response = await request(app)
+                .post("/users/register")
+                .send(userInput)
 
-        //     expect(response.body.status).toBe("success")
-        //     console.log(response.body)
+            expect(response.body.status).toBe("success")
+            console.log(response.body)
 
-        // })
+        })
 
         test("Log in user", async () => {
 
