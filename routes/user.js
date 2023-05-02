@@ -119,5 +119,7 @@ handleValidationErrors(),
  );
 
 
-router.get("/allUsers",cacheMid(300), checkLogin.isLoggedIn, errorHelper.wrapAsync(userController.allUsers));
+router.get("/allUsers",cacheMid(300), 
+// checkLogin.isLoggedIn, 
+errorHelper.wrapAsync(userController.allUsers));
 module.exports = router;
