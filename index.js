@@ -108,8 +108,8 @@ for (const imagePath in imagePaths) {
     }
     app.use("/" + goodPath, express.static(path.join(__dirname, goodPath)));
 }
+module.exports = app
 
-
-
+const env = process.env.NODE_ENV || 'production';
+if(env !== 'test')
 server.listen(port, () => console.log("listening on port " + port));
-
