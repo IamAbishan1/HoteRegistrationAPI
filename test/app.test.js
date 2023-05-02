@@ -3,6 +3,7 @@ const request = require('supertest')
 const conn = require('../controller/userController')
 const { default: mongoose } = require('mongoose')
 // const { signJwt } = require('./utils/jwt.utils')
+const db = require('../dbconfig/dbconnection')
 
 const userId = new mongoose.Types.ObjectId().toString();
 
@@ -28,6 +29,11 @@ const userInput = {
 
 describe("POST /users", () => {
     describe("GEt all users", () => {
+
+        afterAll(async()=>{
+            await mongoose.connection.close()
+        })
+
         test("register a user", async () => {
 
             
