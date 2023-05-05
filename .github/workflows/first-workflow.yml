@@ -1,4 +1,4 @@
-Name: Starter Workflow Demo
+name: Starter Workflow Demo
 on:
   push:
     branches: [ $default-branch ]
@@ -10,4 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: demo workflow job
-        run: echo This is a demo start workflow
+        run: echo "This is a demo start workflow"
+        shell: bash
