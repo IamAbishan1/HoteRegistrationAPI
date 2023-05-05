@@ -1,0 +1,16 @@
+name: Starter Workflow Demo
+on:
+  push:
+    branches: [ "main" ]
+ 
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - run: docker build . -t docabishan/hotel-api
+    - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+    - run: docker push docabishan/hotel-api
