@@ -3,6 +3,7 @@
     "description": "Demo starter workflow.",
     "iconName": "demo-icon",
     "categories": [
-        "Python"
+        "Python",
+        "node"
     ]
 }
