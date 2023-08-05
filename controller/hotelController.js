@@ -6,7 +6,6 @@ const jwt = require("../middlewares/auth")
 // const {Parser} = require("json2csv")
 const Parser = require("json2csv").Parser
 
-
 module.exports = {
     allHotels: async (req,res)=>{
         try{
